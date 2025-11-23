@@ -1,17 +1,14 @@
-# Базовый образ Python
+# Используем официальный образ Python
 FROM python:3.9-slim
 
-# Рабочая директория
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копировать файл зависимостей в контейнер
-COPY requirements.txt .
-
-# Установка зависимости
+# Копируем файлы проекта
+COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Копирование всех файлов приложения в контейнер
-COPY . .
+COPY ./app ./app
 
-# Команда для запуска приложения
-CMD ["python", "app.py"]
+# Указываем команду запуска приложения
+CMD ["flask", "run", "--host=0.0.0.0"]

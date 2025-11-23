@@ -1,0 +1,3 @@
+class Config:
+    SECRET_KEY = '0000'
+    OPENAI_API_KEY = 'sk-1234efgh5678ijkl1234efgh5678ijkl1234efgh'
